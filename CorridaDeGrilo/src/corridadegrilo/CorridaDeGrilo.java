@@ -14,9 +14,16 @@ import java.util.logging.Logger;
  * @author Gustavo Eliseu, Lucas, Marcelino
  */
 public class CorridaDeGrilo {
+    
+    public static class Equipe{
+        int id;
+	int distanciaPercorrida;
+	int totalPulos;
+    }
 
     public static void main(String[] args) {
         
+        Equipe[] equipes;
         //pegando os inputs
             //pegando a quantidade de grilos
         System.out.print("Quantos grilos devem correr? ");
@@ -25,6 +32,17 @@ public class CorridaDeGrilo {
             //pegando a posição da linha de chegada
         System.out.print("Qual a distancia para a chegada? ");
         int distanciaTotal = scan.nextInt();
+        
+        int grilosPorEquipe = 3;
+        int quantEquipes = quantGrilos / grilosPorEquipe;
+
+        equipes = new Equipe[quantEquipes];
+
+        for (int i = 0; i < quantEquipes; i++)
+        {
+            equipes[i] = new Equipe();
+            equipes[i].id = i;
+        }
         
         //instanciando os grilos e armazenando em um array
         Grilo[] grilos = new Grilo[quantGrilos];
